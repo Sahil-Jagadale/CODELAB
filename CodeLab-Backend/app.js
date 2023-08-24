@@ -6,6 +6,10 @@ const cors = require("cors");
 const axios = require('axios');
 app.use(cors());
 
+const connectDB = require("./middleware/db");
+
+connectDB();
+
 const labroute = require("./routes/Lab");
 const assignmentroute = require("./routes/Assignment");
 const studroute = require("./routes/Student");
@@ -38,16 +42,6 @@ const joinedlabbystudroute = require("./routes/labjoinbystud");
 const assdetailsbylabidroute = require("./routes/assdetailsbylabid");
 const studetailsbylid = require("./routes/studdetailsbylid");
 
-
-const mongoURL="mongodb+srv://sahil_264:sssap@cluster0.kxvwhjt.mongodb.net/?retryWrites=true&w=majority";
-
-mongoose.connect(mongoURL,{
-    useNewUrlParser:true
-})
-.then(()=>{
-    console.log("connected to db");
-})
-.catch((e) => console.log(e));
 
 require("./models/userDetails");
 
@@ -87,6 +81,8 @@ app.use("/api/v1", joinedlabbystudroute);
 app.use("/api/v1", assdetailsbylabidroute);
 app.use("/api/v1", studetailsbylid);
   
-const server = app.listen(4000, '192.168.249.31', () =>{
+const PORT = process.env.PORT || 8080;
+
+const server = app.listen(PORT, () =>{
     console.log("Server Started");
 });

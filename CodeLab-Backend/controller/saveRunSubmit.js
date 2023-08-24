@@ -9,8 +9,8 @@ const generateSubmissionId = () => {
 
 const executeCode = async (script, language, versionIndex, inputs) => {
   const payload = {
-    clientId:'38ce9bb78a0b998cd56b8fde165b0108',
-    clientSecret:'3821157720d8b1af4f49cce5b7a2bae41a0c0139756014734112f49e8109dee3',
+    clientId: process.env.jdoodlecid,
+    clientSecret: process.env.jdoodlecsc,
     script,
     language,
     versionIndex,

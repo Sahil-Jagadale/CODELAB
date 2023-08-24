@@ -1,6 +1,6 @@
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
-const JWT_SECRET = "cgvsjydfvgsvhdt7542gbjsdhsdh37%&%$**bjddsghdshjsjgw56wg";
+const JWT_SECRET = process.env.JWT_SECRET;
 const Teacher = require("../models/teachDetails");
 
 const logTeacher = async (req, res) => {

@@ -11,8 +11,8 @@ const executeCode = (req, res) => {
   const { script, language, versionIndex, inputs } = req.body;
 
   const payload = {
-    clientId: '4faaebbc565c32d63f44cd1eb4c7594b',
-    clientSecret: 'd5971b6408a96dd039ba005f76ecb60b2a3830eefcf42a9be8acc617ac5864cf',
+    clientId: process.env.cid,
+    clientSecret: process.env.secret,
     script,
     language,
     versionIndex,

@@ -5,8 +5,8 @@ const Student = require("../models/userDetails");
 const Teacher = require("../models/teachDetails");
 const Nexmo = require('nexmo');
 const nexmo = new Nexmo({
-  apiKey: 'e2ea0706',
-  apiSecret: '12WErJXSSe9gHsJw',
+  apiKey: process.env.apiKey,
+  apiSecret: process.env.secret,
 });
 
 const generateOTP = () => {
